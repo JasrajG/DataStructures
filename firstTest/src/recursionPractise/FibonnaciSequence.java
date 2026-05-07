@@ -36,7 +36,25 @@ public class FibonnaciSequence {
 	}
 	
 	public static int fibArrRec(int i, int[] arr) {
-		return 0;
+		
+		//set value of array element
+		if(i<= 1) {
+			arr[i] = 1;
+			
+		}
+		else {
+			arr[i] = arr[i-1] + arr[i-2];
+		}
+		
+		//check to see if end was reached
+		if( i < arr.length-1) {
+			return fibArrRec(i+1, arr);
+		}
+		
+		else {
+			return arr[i];
+		}
+		
 	}
 	
 	
