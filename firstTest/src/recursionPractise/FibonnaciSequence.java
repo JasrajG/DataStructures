@@ -23,8 +23,25 @@ public class FibonnaciSequence {
 	
 	
 	
-	
-	public static void main(String[] args) {
+	//initiailizer method for taking advantage of passing by value
+	public static int fibArr(int n) {
+		if (n<0) {
+			throw new IllegalArgumentException("Fibonnaci Sequence not defined for negtaive numbers!");
+		}
+		int i = 0 ; //initialize counter
+		int[] arr = new int[n+1];
+		return fibArrRec(i,arr);
+		
 		
 	}
+	
+	public static int fibArrRec(int i, int[] arr) {
+		return 0;
+	}
+	
+	
+	
+	
+	
+
 }

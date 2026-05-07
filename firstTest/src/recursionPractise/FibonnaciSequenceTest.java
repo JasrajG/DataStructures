@@ -9,24 +9,20 @@ class FibonnaciSequenceTest {
 	@Test
 	void testError() {
 		
+		assertAll(
+		() -> assertThrows(IllegalArgumentException.class, () -> 
+		{	FibonnaciSequence.fibonacci(-1);}      )
 		
-		assertThrows(IllegalArgumentException.class, () -> 
-		{
-			
-			FibonnaciSequence.fibonacci(-1);
-		}
 				);
-		
-		
 	}
 	
 	
 	@Test
 	void testOutput() {
 		assertAll(
-		() -> assertEquals(FibonnaciSequence.fibonacci(0), 1),
-		() -> assertEquals(FibonnaciSequence.fibonacci(1), 1),
-		() -> assertEquals(FibonnaciSequence.fibonacci(10), 89)
+		() -> {assertEquals(1, FibonnaciSequence.fibonacci(0), "case 1 failed");},
+		() -> assertEquals(1, FibonnaciSequence.fibonacci(1), "case 2 failed"),
+		() -> assertEquals(89, FibonnaciSequence.fibonacci(10))
 		
 		
 		
