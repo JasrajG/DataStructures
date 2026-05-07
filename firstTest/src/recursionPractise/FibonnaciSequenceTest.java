@@ -18,10 +18,19 @@ class FibonnaciSequenceTest {
 				);
 		
 		
+	}
+	
+	
+	@Test
+	void testOutput() {
+		assertAll(
+		() -> assertEquals(FibonnaciSequence.fibonacci(0), 1),
+		() -> assertEquals(FibonnaciSequence.fibonacci(1), 1),
+		() -> assertEquals(FibonnaciSequence.fibonacci(10), 89)
 		
 		
 		
-		
+		);
 	}
 
 }
