@@ -28,5 +28,38 @@ class FibonnaciSequenceTest {
 		
 		);
 	}
+	
+	
+	
+	
+	
+	@Test
+	void testArrRecError() {
+		
+		assertThrows(IllegalArgumentException.class, () -> 
+		
+				FibonnaciSequence.fibArr(-1)
+				);	
+	}
+	
+	
+	
+	
+	@Test
+	void testArrRecOutput() {
+		
+		assertAll(
+				() -> assertEquals(1, FibonnaciSequence.fibArr(0)),
+				() -> assertEquals(1, FibonnaciSequence.fibArr(1)),
+				() -> assertEquals(89, FibonnaciSequence.fibArr(10))
+				
+				
+				
+				);
+		
+		
+		
+		
+	}
 
 }
