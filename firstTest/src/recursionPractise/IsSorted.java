@@ -16,7 +16,7 @@ public class IsSorted {
 	//recursive method
 	//this method assumes that the values inside the array have been initilalized
 	public static boolean isSortedRec(int i, int[] arr) {
-		if (i == arr.length -1) {
+		if (i == arr.length -1 || arr.length == 0) {
 			return true;
 		}
 		else if(arr[i] > arr[i+1]) {

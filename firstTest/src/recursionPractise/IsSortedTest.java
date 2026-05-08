@@ -13,6 +13,9 @@ class IsSortedTest {
 		
 		assertTrue(IsSorted.isSortedM(array));
 		
+		int[] arr = new int[0];
+		System.out.print(arr.length);
+		assertTrue(IsSorted.isSortedM(arr));
 	}
 
 }
