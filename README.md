@@ -1,6 +1,3 @@
-# EECS 2101
+# Data Structures
 
-Here I will be including all the work done for my data structures course
-A simple change
-
-Change on local machine
+This repository includes some practise problems including comparing various algorithms for efficiency and utilizing an array of data structures to solve some leet-code style problems in Java.

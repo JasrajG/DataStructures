@@ -37,7 +37,7 @@ public class TowerOfHanoiClass {
 	}
 	
 	public static void main(String args[]) {
-		TofH(64);
+		TofH(10);
 	}
 	
 }
