@@ -5,7 +5,8 @@ public class Sort {
 	
 	public static void main(String args[]) {
 		int[] array = {6, 4, 3, 5, 3, 4};
-		selectionSort(array);
+		//selectionSort(array);
+		insertionSort(array);
 		
 	}
 	
@@ -14,7 +15,7 @@ public class Sort {
 	
 
 //Implementation from scratch of selection sort in non-acsending order given an input array
-public static void selectionSort(int [] arr) {
+public static void selectionSort(int[] arr) {
 	for (int i = arr.length-1; i >=1; i--) {
 		int min_index = i;
 		int min = arr[i];
@@ -35,6 +36,25 @@ public static void selectionSort(int [] arr) {
 }
 
 
+//Implementation of insertion sort from scratch in non-ascending order
+
+
+
+public static void insertionSort(int[] arr) {
+	
+	for (int i = arr.length - 1; i>=1; i--) {
+		int j = i-1;
+		
+		while(j <= arr.length - 2 && arr[j] < arr[j+1]) {
+			int temp = arr [j+1];
+			arr[j+1] = arr[j];
+			arr[j] = temp;
+			j++;
+		}
+		
+	}
+	
+}
 
 
 
