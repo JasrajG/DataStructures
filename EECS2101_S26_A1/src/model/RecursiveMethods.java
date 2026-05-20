@@ -3,6 +3,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Arrays;
 
 
 public class RecursiveMethods {
@@ -79,20 +80,57 @@ public class RecursiveMethods {
 	
 	
 	
-	///beginiing of task 4
+	///Beginning of task 4
 	
 	
 	public HashSet<ArrayList<Integer>> task4(int h, int n){
 		
 		HashSet<ArrayList<Integer>> set = new HashSet<ArrayList<Integer>>();
 		
+		ArrayList<Integer> templist = new ArrayList<Integer>();
+		
+		task4Helper(h, n, n, templist, set);
+		
 		return set;
+	}
+	
+public void task4Helper(int h, int n, int max, ArrayList<Integer> templist, HashSet<ArrayList<Integer>> set){
+		
+	
+	if (h==0) {
+		ArrayList<Integer> list = new ArrayList<Integer>(templist);
+		//add the arraylist to the HashSet
+		set.add(list);
+	}
+	
+	else if(h < 0) {
+		
+		//don't add it
+	}
+	
+	else {
+		if(n>1) {
+			
+			//add the move to our temporaroy arrayList
+			templist.add(n);
+			task4Helper(h-n , max, max, templist, set );
+			templist.remove(templist.size()-1);
+			
+			
+			task4Helper(h, n-1, max, templist, set);
+		}
+		else { //case when n=1
+			templist.add(n);
+			task4Helper(h-n , max, max, templist, set);
+			templist.remove(templist.size()-1);
+			}
+		
+	}
+}
 		
 	}
 	
 	
 	
-	
-	
-}
+
 
