@@ -1,5 +1,10 @@
 package model;
 
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+
 public class RecursiveMethods {
 
 	public String task1(String str) {
@@ -35,5 +40,59 @@ public class RecursiveMethods {
 		return task2Helper(arr, target-arr[index], index + 1) || task2Helper(arr, target, index + 1) ;
 		}
 	}
+	
+	
+	
+	///beginnning of task 3
+	
+	
+	public int task3(int h, int n) {
+		
+		
+		
+		
+		return task3Helper(h,n, n);
+	}
+	
+	
+	public int task3Helper(int h, int n, int max) {
+		//base cases
+		if (h==0) {
+			return 1;
+		}
+		
+		else if(h < 0) {
+			return 0;
+		}
+		
+		else {
+			if(n>1) {
+			return task3Helper(h-n , max, max ) + task3Helper(h, n-1, max);
+			}
+			else {
+				return task3Helper(h-n , max, max);
+				}
+			
+		}
+	}
+	
+	
+	
+	
+	///beginiing of task 4
+	
+	
+	public HashSet<ArrayList<Integer>> task4(int h, int n){
+		
+		HashSet<ArrayList<Integer>> set = new HashSet<ArrayList<Integer>>();
+		
+		return set;
+		
+	}
+	
+	
+	
+	
+	
 }
 
