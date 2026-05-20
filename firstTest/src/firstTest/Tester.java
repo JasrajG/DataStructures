@@ -4,9 +4,9 @@ public class Tester {
 
 	public static void main(String[] args) {
 		
-		int i = 1;
-		System.out.println("Hello World!" + i);
-
+		for (int i=0;i<0;i++) {
+			System.out.println("hello");
+		}
 	}
 
 }
