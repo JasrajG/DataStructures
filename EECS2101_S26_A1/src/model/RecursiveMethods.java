@@ -20,20 +20,20 @@ public class RecursiveMethods {
 		
 	}
 	
-	public Boolean task2(int[] arr, int target) {
+	public boolean task2(int[] arr, int target) {
 		
 		return task2Helper(arr, target, 0);
 		
 	}
 	
 	
-	public Boolean task2Helper(int[] arr, int target, int index) {
+	public boolean task2Helper(int[] arr, int target, int index) {
 		
 		if (target == 0) {
 			return true;
 		}
 		
-		if (index==arr.length) {
+		else if (index==arr.length) {
 			return false;
 		}
 		else {
@@ -48,7 +48,9 @@ public class RecursiveMethods {
 	
 	public int task3(int h, int n) {
 		
-		
+		if (n<1) {
+			throw new IllegalArgumentException("Integer must be greater than 0");
+		}
 		
 		
 		return task3Helper(h,n, n);
@@ -87,6 +89,11 @@ public class RecursiveMethods {
 		HashSet<ArrayList<Integer>> set = new HashSet<ArrayList<Integer>>();
 		
 		ArrayList<Integer> templist = new ArrayList<Integer>();
+		
+		if (n<1) {
+			throw new IllegalArgumentException("Integer must be greater than 0");
+		}
+		
 		
 		task4Helper(h, n, n, templist, set);
 		

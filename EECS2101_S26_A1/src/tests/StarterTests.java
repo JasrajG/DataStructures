@@ -55,6 +55,14 @@ public class StarterTests {
 		assertEquals(output, rm.task1(input));
 	}
 	
+	@Test
+	public void testTask1_04() {
+		String input = "()";
+		String output = "()";
+		RecursiveMethods rm = new RecursiveMethods();
+		assertEquals(output, rm.task1(input));
+	}
+	
 	/*
 	 * Starter tests related to Task 2.
 	 * 
@@ -103,6 +111,46 @@ public class StarterTests {
 		RecursiveMethods rm = new RecursiveMethods();
 		// False because no groups from {2, 4, 8} sum up to the target.
 		assertEquals(false, rm.task2(input, 9));
+	}
+	
+	@Test
+	public void testTask2_05() {
+		int[] input = {2, 4, 8};
+		RecursiveMethods rm = new RecursiveMethods();
+		// True
+		assertEquals(true, rm.task2(input, 0));
+	}
+	
+	@Test
+	public void testTask2_06() {
+		int[] input = {};
+		RecursiveMethods rm = new RecursiveMethods();
+		// True
+		assertEquals(true, rm.task2(input, 0));
+	}
+	
+	@Test
+	public void testTask2_07() {
+		int[] input = {2};
+		RecursiveMethods rm = new RecursiveMethods();
+		// True
+		assertEquals(true, rm.task2(input, 2));
+	}
+	
+	@Test
+	public void testTask2_08() {
+		int[] input = {5, -3, 7};
+		RecursiveMethods rm = new RecursiveMethods();
+		// True
+		assertEquals(true, rm.task2(input, 2));
+	}
+	
+	@Test
+	public void testTask2_09() {
+		int[] input = {2, 2, 5};
+		RecursiveMethods rm = new RecursiveMethods();
+		// True
+		assertEquals(true, rm.task2(input, 4));
 	}
 	
 	/*
@@ -164,6 +212,29 @@ public class StarterTests {
 	     * 7. 3 steps, 1 step
 	     */
 	    assertEquals(7, rm.task3(4, 3));
+	}
+	
+	@Test
+	public void testTask3_04() {
+	    RecursiveMethods rm = new RecursiveMethods(); 
+	    /*
+	     * There is only 1 possible way for climbing a staircase of height 4, 
+	     * while each climb takes 1 step.
+	     * 1. 1 step, 1 step, 1 step, 1 step 
+	     */
+	    assertEquals(8, rm.task3(4, 4));
+	}
+	
+	
+	@Test
+	public void testTask3_05() {
+	    RecursiveMethods rm = new RecursiveMethods(); 
+	    /*
+	     * There is only 1 possible way for climbing a staircase of height 4, 
+	     * while each climb takes 1 step.
+	     * 1. 1 step, 1 step, 1 step, 1 step 
+	     */
+	    assertEquals(1, rm.task3(1, 1));
 	}
 	
 	/*
@@ -238,4 +309,44 @@ public class StarterTests {
 	    assertTrue(output.contains(Arrays.asList(2, 2)));
 	    assertTrue(output.contains(Arrays.asList(3, 1)));
 	} 
+	
+	@Test
+	public void testTask4_04() {
+	    RecursiveMethods rm = new RecursiveMethods(); 
+	    /*
+	     * There are 5 possible ways for climbing a staircase of height 4, 
+	     * while each climb takes either 1, 2, or 3 steps.
+	     * 1. 1 step, 1 step, 1 step, 1 step
+	     * 2. 1 step, 1 step, 2 steps
+	     * 3. 1 step, 2 steps, 1 step
+	     * 4. 1 step, 3 steps
+	     * 5. 2 steps, 1 step, 1 step
+	     * 6. 2 steps, 2 steps
+	     * 7. 3 steps, 1 step
+	     */
+	    HashSet<ArrayList<Integer>> output = rm.task4(4, 4);
+	    assertEquals(8, output.size());
+	    assertTrue(output.contains(Arrays.asList(1, 1, 1, 1)));
+	    assertTrue(output.contains(Arrays.asList(1, 1, 2)));
+	    assertTrue(output.contains(Arrays.asList(1, 2, 1)));
+	    assertTrue(output.contains(Arrays.asList(1, 3)));
+	    assertTrue(output.contains(Arrays.asList(2, 1, 1)));
+	    assertTrue(output.contains(Arrays.asList(2, 2)));
+	    assertTrue(output.contains(Arrays.asList(3, 1)));
+	    assertTrue(output.contains(Arrays.asList(4)));
+	} 
+	
+	@Test
+	public void testTask4_05() {
+	    RecursiveMethods rm = new RecursiveMethods(); 
+	    /*
+	     * There is only 1 possible way for climbing a staircase of height 4, 
+	     * while each climb takes 1 step.
+	     * 1. 1 step, 1 step, 1 step, 1 step 
+	     */
+	    HashSet<ArrayList<Integer>> output = rm.task4(1, 1);
+	    assertEquals(1, output.size());
+	    assertTrue(output.contains(Arrays.asList(1)));
+	}
+	
 }

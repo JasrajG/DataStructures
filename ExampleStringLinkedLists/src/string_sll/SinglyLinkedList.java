@@ -151,4 +151,14 @@ public class SinglyLinkedList {
 	 * 	+ void insertBefore(Node n, String e)
 	 * 	+ void removeAt(int i)
 	 */
+	
+	public void removeAt(int i) {
+		if (i < 0 || i > size -1 ) {
+			throw new IllegalArgumentException("Index i is out of bounds!");
+			
+		}
+		else if (i=0) {
+			
+		}
+	}
 }
