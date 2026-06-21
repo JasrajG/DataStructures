@@ -1,5 +1,6 @@
 package string_sll;
 
+import java.util.*;
 public class SinglyLinkedList {
 	private Node head;
 	private Node tail;
@@ -117,18 +118,18 @@ public class SinglyLinkedList {
 
 	public void removeFirst () {
 		if (size == 0) { 
-			throw new IllegalArgumentException("Empty List");
+			throw new NoSuchElementException("Empty List");
 		}
 		else if (size == 1) {
 			head = null; 
 			tail = null;
-			size --; 
+			size --;
 		}
 		else {
 			Node oldHead = head;
 			head = oldHead.getNext();
 			oldHead.setNext(null); 
-			size --; 
+			size --;  
 		}
 	}
 
@@ -152,13 +153,78 @@ public class SinglyLinkedList {
 	 * 	+ void removeAt(int i)
 	 */
 	
+	
+	//!!!!!-------Just created this method--------------
+	//------------Didn't Test
+	public void insertAfter(Node n, String e) {
+		if (n == tail) {
+			n.setNext(new Node(e, null));
+			tail = n.getNext();
+		}
+		else {
+			Node nn = new Node(e, n.getNext());
+			n.setNext(nn);
+		}
+		
+		size ++;
+		
+	}
+	
+	
+	/////Created this method, didn't implement any tests
+	
+	public void insertBefore(Node n, String e) {
+		if (n == head) {
+			head = new Node(e, head);
+		}
+		
+		
+		
+		else {
+			Node current = head;
+			while (current.getNext() != n ) {
+					current = current.getNext();
+				}
+			current.setNext(new Node(e, n));
+			
+		
+		}
+		
+		size ++;
+	}
+		
+		
+
+	
+	
+	
 	public void removeAt(int i) {
 		if (i < 0 || i > size -1 ) {
 			throw new IllegalArgumentException("Index i is out of bounds!");
 			
 		}
-		else if (i=0) {
-			
+		if (size == 1) {
+			head = null;
+			tail = null;
+			}
+		else if (i == 0) {
+			Node temp = head.getNext();
+			head.setNext(null);
+			head = temp;
 		}
+		else if (i == size - 1) {
+			tail = getNodeAt(size - 2);
+			tail.setNext(null);
+		}
+		else {
+			Node nb = this.getNodeAt(i-2);
+			Node n = nb.getNext();
+			nb.setNext( n.getNext() );
+			n.setNext(null); 
+		}
+		
+		size--;
+		
+	
 	}
 }
