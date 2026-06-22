@@ -2,6 +2,7 @@ package tests;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import model.ListUtilities;
 
 @RunWith(Suite.class)
 

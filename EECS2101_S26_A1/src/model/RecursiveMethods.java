@@ -47,38 +47,22 @@ public class RecursiveMethods {
 	
 	
 	public int task3(int h, int n) {
-		
-		if (n<1) {
-			throw new IllegalArgumentException("Integer must be greater than 0");
-		}
-		
-		
-		return task3Helper(h,n, n);
-	}
 	
-	
-	public int task3Helper(int h, int n, int max) {
-		//base cases
-		if (h==0) {
-			return 1;
-		}
-		
-		else if(h < 0) {
+		if (h < 0) {
 			return 0;
 		}
-		
+		else if (h == 0) {
+			return 1;
+		}
 		else {
-			if(n>1) {
-			return task3Helper(h-n , max, max ) + task3Helper(h, n-1, max);
+			int sum=0;
+			for (int i=n; i>=1; i--) {
+				sum += task3(h-i,n);
 			}
-			else {
-				return task3Helper(h-n , max, max);
-				}
-			
+			return sum;
 		}
 	}
-	
-	
+
 	
 	
 	///Beginning of task 4
@@ -87,55 +71,34 @@ public class RecursiveMethods {
 	public HashSet<ArrayList<Integer>> task4(int h, int n){
 		
 		HashSet<ArrayList<Integer>> set = new HashSet<ArrayList<Integer>>();
+		ArrayList<Integer> list = new ArrayList<Integer>();
 		
-		ArrayList<Integer> templist = new ArrayList<Integer>();
-		
-		if (n<1) {
-			throw new IllegalArgumentException("Integer must be greater than 0");
-		}
-		
-		
-		task4Helper(h, n, n, templist, set);
+		task4_helper(h, n, set, list);
 		
 		return set;
-	}
-	
-public void task4Helper(int h, int n, int max, ArrayList<Integer> templist, HashSet<ArrayList<Integer>> set){
 		
-	
-	if (h==0) {
-		ArrayList<Integer> list = new ArrayList<Integer>(templist);
-		//add the arraylist to the HashSet
-		set.add(list);
-	}
-	
-	else if(h < 0) {
 		
-		//don't add it
 	}
 	
-	else {
-		if(n>1) {
-			
-			//add the move to our temporaroy arrayList
-			templist.add(n);
-			task4Helper(h-n , max, max, templist, set );
-			templist.remove(templist.size()-1);
-			
-			
-			task4Helper(h, n-1, max, templist, set);
+	
+	private void task4_helper(int h, int n, HashSet<ArrayList<Integer>> set, ArrayList<Integer> list) {
+		
+		if (h < 0) {
 		}
-		else { //case when n=1
-			templist.add(n);
-			task4Helper(h-n , max, max, templist, set);
-			templist.remove(templist.size()-1);
-			}
 		
+		else if (h==0) {
+			set.add(list);
+		}
+		else {
+			for (int i =n; i >=1; i--) {
+				ArrayList<Integer> current = new ArrayList<Integer>(list);
+				current.add(i);
+				System.out.println(current.size());
+				task4_helper(h-i, n, set, current);
+			}
+		}
 	}
 }
-		
-	}
-	
 	
 	
 
