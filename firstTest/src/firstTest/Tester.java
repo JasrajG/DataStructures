@@ -11,13 +11,12 @@ import java.util.List;
 public class Tester {
 
 	public static void main(String[] args) {
-		int [] arr = new int[5];
-		String s = "hello";
-		int i = arr.length;
+		int [][] arr = new int[5][6];
+		int a =5;
 		
-		 s = s.substring(0,s.length()-1);
 		
-		System.out.println(s);
+		
+		System.out.println(arr[0].length);
 	}
 
 }
